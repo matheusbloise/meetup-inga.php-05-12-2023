@@ -19,6 +19,7 @@ class PixResource extends JsonResource
         return [
             'id' => $this->id,
             'unique_id' => $this->uniqueId,
+            'amount' => $this->amount,
             'type' => $this->type->name,
             'status' => $this->status->name
         ];

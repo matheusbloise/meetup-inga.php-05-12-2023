@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Domain\Entities\MovementEntity;
-use App\Domain\Enums\Type;
+use App\Domain\DTO\Movement;
 use App\Domain\Repositories\MovementRepositoryInterface;
 use App\Domain\Repositories\PaymentGatewayRepositoryInterface;
 
@@ -17,9 +16,9 @@ class PixService
     ) {
     }
 
-    public function handle(string $amount): MovementEntity
+    public function handle(string $amount): Movement
     {
-        $pix = $this->gatewayRepository->generate($amount, Type::PIX);
-        return $this->movementRepository->create($pix);
+        $pix = $this->movementRepository->create($amount);
+        return $this->gatewayRepository->generate($pix);
     }
 }

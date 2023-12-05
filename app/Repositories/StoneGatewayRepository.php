@@ -2,20 +2,24 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Repositories;
+namespace App\Repositories;
 
+use App\Domain\DTO\Movement;
+use App\Domain\Entities\MovementEntity;
 use App\Domain\Enums\Type;
-use App\DTO\Movement;
-use Ramsey\Uuid\Uuid;
+use App\Domain\Repositories\PaymentGatewayRepositoryInterface;
 
 class StoneGatewayRepository implements PaymentGatewayRepositoryInterface
 {
-    public function generate(string $amount, Type $type): Movement
+    public function generate(MovementEntity $entity): Movement
     {
         return new Movement(
-            uniqueId: Uuid::uuid4()->toString(),
-            amount: $amount,
-            type: $type,
+            id: $entity->id,
+            uniqueId: $entity->uniqueId,
+            amount: $entity->amount,
+            type: $entity->type,
+            status: $entity->status,
+            createdAt: $entity->createdAt
         );
     }
 }

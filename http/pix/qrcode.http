@@ -3,5 +3,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "amount": "87.00"
+    "amount": 20.00
 }

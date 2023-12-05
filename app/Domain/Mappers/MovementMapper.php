@@ -9,7 +9,7 @@ use App\Domain\Enums\Status;
 use App\Domain\Enums\Type;
 use DateTime;
 
-class MovementMapperInterface implements MapperInterface
+class MovementMapper implements MapperInterface
 {
     public function toEntity(array $data): MovementEntity
     {

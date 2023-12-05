@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Domain\Repositories;
 
-use App\Domain\Enums\Type;
-use App\DTO\Movement;
+use App\Domain\DTO\Movement;
+use App\Domain\Entities\MovementEntity;
 
 interface PaymentGatewayRepositoryInterface
 {
-    public function generate(string $amount, Type $type): Movement;
+    public function generate(MovementEntity $entity): Movement;
 }

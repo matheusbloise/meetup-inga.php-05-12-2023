@@ -2,11 +2,9 @@
 
 namespace App\Providers;
 
-use App\Domain\ValueObjects\UniqueKey;
-use Illuminate\Contracts\Database\Query\Builder as BuilderInterface;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\ServiceProvider;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidFactory;
+use Ramsey\Uuid\UuidInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,8 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(UniqueKey::class, fn() => Uuid::getFactory());
-        $this->app->bind(BuilderInterface::class, fn() => app(Builder::class));
+        $this->app->bind(
+            UuidInterface::class,
+            fn() => app(UuidFactory::class)->uuid4()
+        );
     }
 
     /**

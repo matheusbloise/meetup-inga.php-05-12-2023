@@ -6,8 +6,8 @@ namespace App\Providers;
 
 use App\Domain\Repositories\MovementRepositoryInterface;
 use App\Domain\Repositories\PaymentGatewayRepositoryInterface;
-use App\Domain\Repositories\StoneGatewayRepository;
-use App\Domain\Repositories\PixRepository;
+use App\Repositories\Factories\PixRepositoryFactory;
+use App\Repositories\StoneGatewayRepository;
 use Illuminate\Support\ServiceProvider;
 
 class MovementServiceProvider extends ServiceProvider
@@ -25,7 +25,7 @@ class MovementServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             MovementRepositoryInterface::class,
-            fn() => app(PixRepository::class)
+            fn() => app(PixRepositoryFactory::class)()
         );
     }
 

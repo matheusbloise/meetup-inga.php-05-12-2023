@@ -8,7 +8,7 @@ use App\Domain\Enums\Status;
 use App\Domain\Enums\Type;
 use DateTimeInterface;
 
-final class MovementEntity
+class MovementEntity
 {
     public function __construct(
         public int $id,

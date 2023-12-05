@@ -11,13 +11,13 @@ use App\Services\PixService;
 class PixController extends Controller
 {
     public function __construct(
-        private PixService $service
+        private readonly PixService $service
     ) {
     }
 
     public function generate(PixRequest $request): PixResource
     {
-        $amount = $request->input('amount');
+        $amount = (string) $request->input('amount');
         $pix = $this->service->handle($amount);
         return PixResource::make($pix);
     }
