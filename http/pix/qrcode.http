@@ -1,0 +1,7 @@
+POST {{host}}/api/pix/qrcode
+Accept: application/json
+Content-Type: application/json
+
+{
+    "amount": "87.00"
+}
