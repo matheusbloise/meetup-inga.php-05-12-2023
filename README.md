@@ -20,9 +20,3 @@ que apoia o DevParaná ❤️.
     <li>⏰ Horário: 19:00</li>
     <li>📍 Local: Trade Technology, Maringá</li>
 </ul>
-
-<style>
-    ul {
-        list-style: none;
-    }
-</style>
